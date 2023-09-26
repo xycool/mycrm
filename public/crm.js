@@ -21,10 +21,10 @@ var state = {
 };
 var root = document.getElementById("crm");
 assertDefined(root, `root muse be defined`);
-root.className = "flex w-fit whitespace-nowrap bg-slate-200 overflow-x-scroll";
+root.className = "flex justify-center items-center w-fit h-screen whitespace-nowrap bg-slate-200 overflow-x-scroll";
 for (const stage of state.stages) {
   const _div = document.createElement("div");
-  _div.className = "h-screen mr-3 w-48";
+  _div.className = "flex flex-col justify-stretch h-5/6 mr-3 w-48";
   {
     const __divTitle = document.createElement("div");
     __divTitle.className = "bg-white px-4 py-2 mb-2 rounded-sm";
