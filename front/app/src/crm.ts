@@ -13,7 +13,7 @@ const state = {
     'Candidate failed',
   ]
 }
-const root = document.getElementById("crm") as HTMLElement
+const root = document.getElementById("crm")
 assertDefined(root, `root muse be defined`)
 // I use w-fit to make the div scrollable horizontally.
 root.className = 'flex justify-center items-center w-fit h-screen whitespace-nowrap bg-slate-200 overflow-x-scroll'
@@ -46,9 +46,11 @@ for (const stage of state.stages) {
         const divModalShadow = document.createElement('div')
         divModalShadow.className = 'fixed top-0 bottom-0 left-0 right-0 bg-black opacity-70'
 
+        const classModalContainer = 'flex flex-col justify-between items-stretch absolute top-0 h-screen bg-white'
         // modal's container
+
         const divModalContainer = document.createElement('div')
-        divModalContainer.className = 'flex flex-col justify-between items-stretch absolute top-0 left-1/2 h-screen w-1/2 bg-white'
+        divModalContainer.className = `${classModalContainer} left-1/2 w-1/2`
         {
           const classBlock = 'px-7'
           const classBlockTopOrBottom = `${classBlock} py-3 bg-slate-50 border-slate-100`
@@ -95,6 +97,10 @@ for (const stage of state.stages) {
             const __buttonCustomizeFields = document.createElement('button')
             __buttonCustomizeFields.className = 'font-light underline hover:text-sky-600'
             __buttonCustomizeFields.innerText = 'Customize Fields'
+            __buttonCustomizeFields.addEventListener('click', function buttonCustomizeFieldsClickListener() {
+              // modal width wider
+              divModalContainer.className = `${classModalContainer} left-1/2 w-1/2`
+            })
 
             const __divRight = document.createElement('div')
             __divRight.className = 'flex gap-x-2'

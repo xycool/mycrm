@@ -1,11 +1,11 @@
-// src/base.ts
+// front/app/src/base.ts
 function assertDefined(value, message) {
   if (value == undefined) {
     throw new Error(message);
   }
 }
 
-// src/crm.ts
+// front/app/src/crm.ts
 var state = {
   stages: [
     "New Candidates",
@@ -43,8 +43,9 @@ for (const stage of state.stages) {
       ___divAddButton.addEventListener("click", function addButtonClickListener() {
         const divModalShadow = document.createElement("div");
         divModalShadow.className = "fixed top-0 bottom-0 left-0 right-0 bg-black opacity-70";
+        const classModalContainer = "flex flex-col justify-between items-stretch absolute top-0 h-screen bg-white";
         const divModalContainer = document.createElement("div");
-        divModalContainer.className = "flex flex-col justify-between items-stretch absolute top-0 left-1/2 h-screen w-1/2 bg-white";
+        divModalContainer.className = `${classModalContainer} left-1/2 w-1/2`;
         {
           const classBlock = "px-7";
           const classBlockTopOrBottom = `${classBlock} py-3 bg-slate-50 border-slate-100`;
@@ -83,6 +84,9 @@ for (const stage of state.stages) {
             const __buttonCustomizeFields = document.createElement("button");
             __buttonCustomizeFields.className = "font-light underline hover:text-sky-600";
             __buttonCustomizeFields.innerText = "Customize Fields";
+            __buttonCustomizeFields.addEventListener("click", function buttonCustomizeFieldsClickListener() {
+              divModalContainer.className = `${classModalContainer} left-1/2 w-1/2`;
+            });
             const __divRight = document.createElement("div");
             __divRight.className = "flex gap-x-2";
             {
